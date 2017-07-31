@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import List from './List.js';
+import Card from './Card.js';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<List />, document.getElementById('root'));
+ReactDOM.render(<Card/>, document.getElementById('root'));
 registerServiceWorker();
