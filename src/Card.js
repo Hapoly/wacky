@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
-
+const green = '#39D1B4';
+const yellow = '#FFD712';
 class Card extends Component {
-    background = (color) => {
-      this.setState({
-          color : color
-      });
-      console.log(color);
+ constructor(props){
+    super(props);
+    this.state = { color:"#ffff"};
+    this.changeColor = this.changeColor.bind(this);
+  }
+  
+  changeColor(color) {
+    // const newColor = this.state.color == green ? yellow : green;
+    this.setState({ color: color});
   }
     render() {
         return (
             <div className="container">    
               <div className="top-buffer row">
                     <div className="col-md-8 col-sm-12 offset-md-2">
-                        <div className="card" style={{backgroundColor: this.setState.color }}>
+                        <div className="card" style={{background: this.state.color}}>
                             <div className="card-block">
                                 <div className="row">
                                     <div className="col-lg-12">
@@ -22,12 +27,26 @@ class Card extends Component {
                                         <button className="btn btn-secondary" type="button">Add!</button>
                                         </span>
                                         </div>
-                                        <select className="custom-select">
+                                        <select className="custom-select" >
                                             <option selected>choose your favorite background Color</option>
-                                            <option color="#e91e63">pink</option>
-                                            <option color="#FFFF00">yellow</option>
-                                            <option color="#335BFF">blue</option>
+                                            <option  onClick={this.changeColor.bind(this , green)}>pink</option>
+                                            <option color="#FFFF00" onClick={this.changeColor}>yellow</option>
+                                            <option color="#335BFF" onClick={this.changeColor}>blue</option>
                                         </select>
+  <fieldset className="form-group top-buffer">
+   
+   <div className="form-check ">
+  <div className="form-check-label">
+    <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"/> 1
+  </div>
+</div>
+<div className="form-check ">
+  <label className="form-check-label">
+    <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/> 2
+  </label>
+</div>
+    
+  </fieldset>
                                     </div>
                                 </div>
                              
