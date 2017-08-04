@@ -29,7 +29,7 @@ class Card extends Component {
                                         </div>
                                         <select className="custom-select" >
                                             <option selected>choose your favorite background Color</option>
-                                            <option  onClick={this.changeColor.bind(this , green)}>pink</option>
+                                            <option  onClick={this.changeColor.bind(this , green)}>green</option>
                                             <option color="#FFFF00" onClick={this.changeColor}>yellow</option>
                                             <option color="#335BFF" onClick={this.changeColor}>blue</option>
                                         </select>
