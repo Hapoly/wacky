@@ -27,9 +27,8 @@ class Card extends Component {
                                         <button className="btn btn-secondary" type="button">Add!</button>
                                         </span>
                                         </div>
-                                        <select className="custom-select" >
+                                        <select className="custom-select" onChange={(event) => {this.changeColor(event.target.color); }} >
                                             <option selected>choose your favorite background Color</option>
-                                            <option  onClick={this.changeColor.bind(this , green)}>green</option>
                                             <option color="#FFFF00" onClick={this.changeColor}>yellow</option>
                                             <option color="#335BFF" onClick={this.changeColor}>blue</option>
                                         </select>
