@@ -25,7 +25,7 @@ class Card extends Component {
                     <div className="input-group">
                     <input type="text" className="form-control" placeholder="add..." />
                       <span className="input-group-btn">
-                        <button className="btn btn-secondary" type="button">Add!</button>
+                        <button className="btn btn-secondary" type="button"><i className="fa fa-check" aria-hidden="true"></i>Add!</button>
                       </span>
                     </div>
                     <fieldset className="form-group top-buffer">
@@ -45,15 +45,9 @@ class Card extends Component {
                 <div className="row">
                   <div className="col-md-3 col-sm-12 pull-right">
                     <select className="custom-select" onChange={this.changeColor} >
-                      <option value="#FFF" onClick={this.changeColor}>
-                        {this.state.color == "#FFF"? <i className="fa fa-check" aria-hidden="true"></i> : ''}white
-                      </option>
-                      <option value="#FFFF00" onClick={this.changeColor}>
-                        {this.state.color == "#FFFF00"? <i className="fa fa-check" aria-hidden="true"></i> : ''}yellow
-                      </option>
-                      <option value="#335BFF" onClick={this.changeColor}>
-                        {this.state.color == "#335BFF"? <i className="fa fa-check" aria-hidden="true"></i> : ''}blue
-                      </option>
+                      <option value="#FFF" onClick={this.changeColor}>white</option>
+                      <option value="#FFFF00" onClick={this.changeColor}>yellow</option>
+                      <option value="#335BFF" onClick={this.changeColor}>blue</option>
                     </select>
                   </div>
                 </div>
