@@ -6,48 +6,89 @@ class Card extends Component {
     super(props);
   }
   state = {
-    color : "#FFF"
+    cardColor : "#FFF" ,
+    textColor:"#000000",
+    tasks : [
+      {
+        title:"title-1",
+        status : false ,
+      },
+      {
+        title:"title-2",
+        status : true ,
+      }
+    ]
   }
   changeColor = (event) => {
     this.setState({
-      color : event.target.value
+      cardValue: event.target.value,
+     
+      if ( cardValue = "1" ){
+        cardColor = "#FFF",
+        textColor ="#000000"
+      }
     });
+  }
+  generateTask = (t) =>{
+    if (t.status){
+return (
+            <div className="form-check ">
+              <div className="form-check-label">
+                <input className="form-check-input" checked type="checkbox" value="option1"/>
+                {t.title}
+              </div>
+            </div>
+    );
+    }else{
+return (
+            <div className="form-check ">
+              <div className="form-check-label">
+                <input className="form-check-input" type="checkbox" value="option1"/>
+                {t.title}
+              </div>
+            </div>
+    );
+    }
+  
+    
+  }
+  addItemtoList = (event) =>{
+    var tasks = this.state.tasks;
+    tasks.push ({
+      title:document.getElementById('taskinput').value,
+        status : false ,
+    });
+      this.setState({
+        tasks: tasks
+      });
   }
   render() {
     return (
       <div className="container">    
         <div className="top-buffer row">
           <div className="col-md-8 col-sm-12 offset-md-2">
-            <div className="card" style={{background: this.state.color}}>
+            <div className="card" style={{background: this.state.cardColor}}>
               <div className="card-block">
                 <div className="row">
                   <div className="col-lg-12">
                     <div className="input-group">
-                    <input type="text" className="form-control" placeholder="add..." />
+                    <input type="text" className="form-control" id="taskinput" placeholder="add..." />
                       <span className="input-group-btn">
-                        <button className="btn btn-secondary" type="button"><i className="fa fa-check" aria-hidden="true"></i>Add!</button>
+                        <button className="btn btn-secondary" onClick={this.addItemtoList} type="button"><i className="fa fa-check" aria-hidden="true"></i>Add!</button>
                       </span>
                     </div>
                     <fieldset className="form-group top-buffer">
-                    <div className="form-check ">
-                      <div className="form-check-label">
-                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"/> 1
-                      </div>
-                    </div>
-                      <div className="form-check ">
-                        <label className="form-check-label">
-                          <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/> 2
-                        </label>
-                      </div>
+                    {this.state.tasks.map(this.generateTask)}
                     </fieldset>
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-3 col-sm-12 pull-right">
+                  <div className="col-md-3 col-sm-12 pull-right" style={{color : this.state.textColor}}>
                     <select className="custom-select" onChange={this.changeColor} >
-                      <option value="#FFF" onClick={this.changeColor}>white</option>
-                      <option value="#FFFF00" onClick={this.changeColor}>yellow</option>
-                      <option value="#335BFF" onClick={this.changeColor}>blue</option>
+                      <option value="1" onClick={this.changeColor}>white</option>
+                      <option value="#eeff41" onClick={this.changeColor} style={{background :"#eeff41"}}>yellow</option>
+                        <option value="#f50057" onClick={this.changeColor} style={{background :"#f50057"}}>pink</option>
+                      <option value="#1976d2" txtclr="#FFF" onClick={this.changeColor} style={{background :"#1976d2"}}>blue</option>
                     </select>
                   </div>
                 </div>
