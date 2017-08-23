@@ -24,8 +24,10 @@ class Card extends Component {
       cardValue: event.target.value,
      
       if ( cardValue = "1" ){
-        cardColor = "#FFF",
-        textColor ="#000000"
+        this.setState({
+            cardColor : "#FFF",
+            textColor :"#000000"
+        });
       }
     });
   }
