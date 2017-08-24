@@ -29,6 +29,8 @@ class Card extends Component {
             textColor :"#000000"
         });
       }
+     
+     
     });
   }
   generateTask = (t) =>{
@@ -88,9 +90,9 @@ return (
                   <div className="col-md-3 col-sm-12 pull-right" style={{color : this.state.textColor}}>
                     <select className="custom-select" onChange={this.changeColor} >
                       <option value="1" onClick={this.changeColor}>white</option>
-                      <option value="#eeff41" onClick={this.changeColor} style={{background :"#eeff41"}}>yellow</option>
-                        <option value="#f50057" onClick={this.changeColor} style={{background :"#f50057"}}>pink</option>
-                      <option value="#1976d2" txtclr="#FFF" onClick={this.changeColor} style={{background :"#1976d2"}}>blue</option>
+                      <option value="2" onClick={this.changeColor} style={{background :"#eeff41"}}>yellow</option>
+                      <option value="3" onClick={this.changeColor} style={{background :"#f50057"}}>pink</option>
+                      <option value="4"  onClick={this.changeColor} style={{background :"#1976d2"}}>blue</option>
                     </select>
                   </div>
                 </div>
